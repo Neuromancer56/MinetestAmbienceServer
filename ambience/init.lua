@@ -68,15 +68,16 @@ local played_on_start = false
 local night = {
 	handler = {},
 	frequency = night_frequency,
-	{name="horned_owl", length=3, gain=night_volume},
-	{name="Wolves_Howling", length=11,  gain=night_volume},
-	{name="ComboWind", length=17,  gain=night_volume}
+	{name="horned_owl", length=2.8, gain=night_volume},
+	{name="Wolves_Howling", length=4.4,  gain=night_volume},
+	{name="ComboWind", length=9.7,  gain=night_volume}
 }
 
 local night_frequent = {
 	handler = {},
 	frequency = night_frequent_frequency,
-	{name="Crickets_At_NightCombo", length=69, gain=night_frequent_volume}
+	{name="Crickets_At_NightCombo", length=8.25, gain=night_frequent_volume},
+	{name="Crickets_At_NightCombo", length=5.25, gain=night_frequent_volume*.6}
 }
 
 local day = {
@@ -85,19 +86,19 @@ local day = {
 	{name="Best Cardinal Bird", length=4, gain=day_volume},
 	{name="craw", length=3, gain=day_volume},
 	{name="bluejay", length=18, gain=day_volume},
-	{name="ComboWind", length=17,  gain=day_volume}
+	{name="ComboWind", length=9.7,  gain=day_volume}
 }
 
 local day_frequent = {
 	handler = {},
 	frequency = day_frequent_frequency,
-	{name="robin2", length=16, gain=day_frequent_volume},
-	{name="birdsongnl", length=13, gain=day_frequent_volume},
-	{name="bird", length=30, gain=day_frequent_volume},
+	{name="robin2", length=7.8, gain=day_frequent_volume},
+	{name="birdsongnl", length=7.1, gain=day_frequent_volume},
+	{name="bird", length=13.1, gain=day_frequent_volume},
 	{name="Best Cardinal Bird", length=4, gain=day_frequent_volume},
 	{name="craw", length=3, gain=day_frequent_volume},
 	{name="bluejay", length=18, gain=day_frequent_volume},
-	{name="ComboWind", length=17,  gain=day_frequent_volume*3}
+	{name="ComboWind", length=9.7,  gain=day_frequent_volume*3}
 }
 local swimming_frequent = {
 	handler = {},
@@ -131,20 +132,21 @@ local beach = {
 local beach_frequent = {
 	handler = {},
 	frequency = beach_frequent_frequency,
-	{name="fiji_beach", length=43.5, gain=beach_frequent_volume}
+	{name="fiji_beach", length=13.4, gain=beach_frequent_volume},
+	{name="fiji_beach", length=13.1, gain=beach_frequent_volume*.5}
 }
 
 local desert = {
 	handler = {},
 	frequency = desert_frequency,
-	{name="coyote2", length=2.5, gain=desert_volume},
+	{name="coyote2", length=2.1, gain=desert_volume},
 	{name="RattleSnake", length=8, gain=desert_volume}
 }
 
 local desert_frequent = {
 	handler = {},
 	frequency = desert_frequent_frequency,
-	{name="DesertMonolithMed", length=34.5, gain=desert_frequent_volume}
+	{name="DesertMonolithMed", length=15.1, gain=desert_frequent_volume}
 }
 
 local flying = {
@@ -152,7 +154,7 @@ local flying = {
 	frequency = 1000,
 	on_start = "nothing_yet",
 	on_stop = "nothing_yet",
-	{name="ComboWind", length=17,  gain=1}
+	{name="ComboWind", length=9.7,  gain=1}
 }
 
 local water = {
@@ -167,7 +169,7 @@ local water_frequent = {
 	frequency = water_frequent_frequency,
 	on_stop = "drowning_gasp",
 	--on_start = "Splash",
-	{name="scuba1bubbles", length=11, gain=water_frequent_volume},
+	{name="scuba1bubbles", length=5.4, gain=water_frequent_volume},
 	{name="scuba1calm", length=10, gain=water_frequent_volume},  --not sure why but sometimes I get errors when setting gain=water_frequent_volume here.
 	{name="scuba1calm2", length=8.5, gain=water_frequent_volume},
 	{name="scuba1interestingbubbles", length=11, gain=water_frequent_volume},
@@ -179,8 +181,8 @@ local water_surface = {
 	frequency = 1000,
 	on_stop = "Splash",
 	on_start = "Splash",
-	{name="lake_waves_2_calm", length=9.5, gain=water_surface_volume},
-	{name="lake_waves_2_variety", length=13.1, gain=water_surface_volume}
+	{name="lake_waves_2_calm", length=5.4, gain=water_surface_volume},
+	{name="lake_waves_2_variety", length=6.6, gain=water_surface_volume}
 }
 local splashing_water = {
 	handler = {},
