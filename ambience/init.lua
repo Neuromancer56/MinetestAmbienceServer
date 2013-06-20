@@ -80,6 +80,12 @@ local night_frequent = {
 	{name="Crickets_At_NightCombo", length=5.25, gain=night_frequent_volume*.6}
 }
 
+local night_frequent2 = {
+	handler = {},
+	frequency = night_frequent_frequency,
+	{name="Crickets_At_NightCombo", length=8.25, gain=night_frequent_volume*.3}
+}
+
 local day = {
 	handler = {},
 	frequency = day_frequency,
@@ -134,6 +140,12 @@ local beach_frequent = {
 	frequency = beach_frequent_frequency,
 	{name="fiji_beach", length=13.4, gain=beach_frequent_volume},
 	{name="fiji_beach", length=13.1, gain=beach_frequent_volume*.5}
+}
+
+local beach_frequent2 = {
+	handler = {},
+	frequency = beach_frequent_frequency,
+	{name="fiji_beach", length=11, gain=beach_frequent_volume*.3}
 }
 
 local desert = {
@@ -433,9 +445,9 @@ local get_ambience = function(player)
 --if we are near sea level and there is lots of water around the area
 	if pos.y < 7 and pos.y >0 and atleast_nodes_in_grid(pos, 60, 1, "default:water_source", 51 ) then
 		if music then
-			return {beach=beach, beach_frequent=beach_frequent, music=music}
+			return {beach=beach, beach_frequent=beach_frequent, beach_frequent2=beach_frequent2, music=music}
 		else
-			return {beach=beach, beach_frequent=beach_frequent}
+			return {beach=beach, beach_frequent=beach_frequent, beach_frequent2=beach_frequent2}
 		end		
 	end
 	if standing_in_water then
@@ -477,9 +489,9 @@ local get_ambience = function(player)
 		end
 	else
 		if music then
-			return {night=night, night_frequent=night_frequent, music=music}
+			return {night=night, night_frequent=night_frequent, night_frequent2=night_frequent2, music=music}
 		else
-			return {night=night, night_frequent=night_frequent}
+			return {night=night, night_frequent=night_frequent, night_frequent2=night_frequent2,}
 		end
 	end
 end
@@ -566,6 +578,16 @@ local stop_sound = function(still_playing, player)
 			list.handler[player_name] = nil
 		end
 	end
+	if still_playing.beach_frequent2 == nil then
+		local list = beach_frequent2
+		if list.handler[player_name] ~= nil then
+			if list.on_stop ~= nil then
+				minetest.sound_play(list.on_stop, {to_player=player:get_player_name(),gain=SOUNDVOLUME})
+			end
+			minetest.sound_stop(list.handler[player_name])
+			list.handler[player_name] = nil
+		end
+	end
 	if still_playing.desert == nil then
 		local list = desert
 		if list.handler[player_name] ~= nil then
@@ -598,6 +620,16 @@ local stop_sound = function(still_playing, player)
 	end
 	if still_playing.night_frequent == nil then
 		local list = night_frequent
+		if list.handler[player_name] ~= nil then
+			if list.on_stop ~= nil then
+				minetest.sound_play(list.on_stop, {to_player=player:get_player_name(),gain=SOUNDVOLUME})
+			end
+			minetest.sound_stop(list.handler[player_name])
+			list.handler[player_name] = nil
+		end
+	end
+	if still_playing.night_frequent2 == nil then
+		local list = night_frequent2
 		if list.handler[player_name] ~= nil then
 			if list.on_stop ~= nil then
 				minetest.sound_play(list.on_stop, {to_player=player:get_player_name(),gain=SOUNDVOLUME})
