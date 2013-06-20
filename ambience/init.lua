@@ -83,7 +83,7 @@ local night_frequent = {
 local night_frequent2 = {
 	handler = {},
 	frequency = night_frequent_frequency,
-	{name="Crickets_At_NightCombo", length=8.25, gain=night_frequent_volume*.3}
+	{name="Crickets_At_NightCombo", length=8.25, gain=night_frequent_volume*.4}
 }
 
 local day = {
@@ -158,7 +158,10 @@ local desert = {
 local desert_frequent = {
 	handler = {},
 	frequency = desert_frequent_frequency,
-	{name="DesertMonolithMed", length=15.1, gain=desert_frequent_volume}
+	{name="DesertMonolithMed", length=15.1, gain=desert_frequent_volume},
+	{name="ComboWind", length=9.7,  gain=desert_frequent_volume},
+	{name="ComboWind", length=8.7,  gain=desert_frequent_volume*.5},
+	{name="DesertMonolithMed", length=14.1, gain=desert_frequent_volume*.5},
 }
 
 local flying = {
